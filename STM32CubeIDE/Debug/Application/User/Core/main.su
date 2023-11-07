@@ -1,0 +1,13 @@
+C:/Users/bbbmi/OneDrive/Desktop/SubGHz_Phy_PingPong/STM32CubeIDE/Application/User/Core/RF_Transmission.h:367:6:LED_Process	8	static
+C:/Users/bbbmi/OneDrive/Desktop/SubGHz_Phy_PingPong/STM32CubeIDE/Application/User/Core/RF_Transmission.h:509:13:OnledEvent	8	static
+C:/Users/bbbmi/OneDrive/Desktop/SubGHz_Phy_PingPong/STM32CubeIDE/Application/User/Core/RF_Transmission.h:373:13:PingPong_Process	8	static
+C:/Users/bbbmi/OneDrive/Desktop/SubGHz_Phy_PingPong/STM32CubeIDE/Application/User/Core/RF_Transmission.h:345:13:OnRxError	8	static
+C:/Users/bbbmi/OneDrive/Desktop/SubGHz_Phy_PingPong/STM32CubeIDE/Application/User/Core/RF_Transmission.h:334:13:OnRxTimeout	8	static
+C:/Users/bbbmi/OneDrive/Desktop/SubGHz_Phy_PingPong/STM32CubeIDE/Application/User/Core/RF_Transmission.h:323:13:OnTxTimeout	8	static
+C:/Users/bbbmi/OneDrive/Desktop/SubGHz_Phy_PingPong/STM32CubeIDE/Application/User/Core/RF_Transmission.h:282:13:OnRxDone	32	static
+C:/Users/bbbmi/OneDrive/Desktop/SubGHz_Phy_PingPong/STM32CubeIDE/Application/User/Core/RF_Transmission.h:271:13:OnTxDone	8	static
+C:/Users/bbbmi/OneDrive/Desktop/SubGHz_Phy_PingPong/STM32CubeIDE/Application/User/Core/RF_Transmission.h:174:6:RF_Transceiver_Init	72	static
+C:/Users/bbbmi/OneDrive/Desktop/SubGHz_Phy_PingPong/STM32CubeIDE/Application/User/Core/RF_Transmission.h:357:6:Update_State	8	static
+C:/Users/bbbmi/OneDrive/Desktop/SubGHz_Phy_PingPong/Core/Src/main.c:183:6:Error_Handler	0	static,ignoring_inline_asm
+C:/Users/bbbmi/OneDrive/Desktop/SubGHz_Phy_PingPong/Core/Src/main.c:120:6:SystemClock_Config	112	static
+C:/Users/bbbmi/OneDrive/Desktop/SubGHz_Phy_PingPong/Core/Src/main.c:64:5:main	8	static
