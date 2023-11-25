@@ -7,7 +7,7 @@
    ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2021 STMicroelectronics.
+  * Copyright (c) 2023 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -56,11 +56,6 @@ extern "C" {
   * @brief  Init SubGHz Radio Application
   */
 void MX_SubGHz_Phy_Init(void);
-
-/**
-  * @brief  SubGHz Radio Application Process
-  */
-void MX_SubGHz_Phy_Process(void);
 
 /* USER CODE BEGIN EFP */
 

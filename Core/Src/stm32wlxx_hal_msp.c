@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2021 STMicroelectronics.
+  * Copyright (c) 2023 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -68,10 +68,137 @@ void HAL_MspInit(void)
   /* USER CODE END MspInit 0 */
 
   /* System interrupt init*/
+  /* PendSV_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(PendSV_IRQn, 15, 0);
 
   /* USER CODE BEGIN MspInit 1 */
 
   /* USER CODE END MspInit 1 */
+}
+
+/**
+* @brief SUBGHZ MSP Initialization
+* This function configures the hardware resources used in this example
+* @param hsubghz: SUBGHZ handle pointer
+* @retval None
+*/
+void HAL_SUBGHZ_MspInit(SUBGHZ_HandleTypeDef* hsubghz)
+{
+  /* USER CODE BEGIN SUBGHZ_MspInit 0 */
+
+  /* USER CODE END SUBGHZ_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_SUBGHZSPI_CLK_ENABLE();
+    /* SUBGHZ interrupt Init */
+    HAL_NVIC_SetPriority(SUBGHZ_Radio_IRQn, 5, 0);
+    HAL_NVIC_EnableIRQ(SUBGHZ_Radio_IRQn);
+  /* USER CODE BEGIN SUBGHZ_MspInit 1 */
+
+  /* USER CODE END SUBGHZ_MspInit 1 */
+
+}
+
+/**
+* @brief SUBGHZ MSP De-Initialization
+* This function freeze the hardware resources used in this example
+* @param hsubghz: SUBGHZ handle pointer
+* @retval None
+*/
+void HAL_SUBGHZ_MspDeInit(SUBGHZ_HandleTypeDef* hsubghz)
+{
+  /* USER CODE BEGIN SUBGHZ_MspDeInit 0 */
+
+  /* USER CODE END SUBGHZ_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_SUBGHZSPI_CLK_DISABLE();
+
+    /* SUBGHZ interrupt DeInit */
+    HAL_NVIC_DisableIRQ(SUBGHZ_Radio_IRQn);
+  /* USER CODE BEGIN SUBGHZ_MspDeInit 1 */
+
+  /* USER CODE END SUBGHZ_MspDeInit 1 */
+
+}
+
+/**
+* @brief UART MSP Initialization
+* This function configures the hardware resources used in this example
+* @param huart: UART handle pointer
+* @retval None
+*/
+void HAL_UART_MspInit(UART_HandleTypeDef* huart)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+  if(huart->Instance==USART2)
+  {
+  /* USER CODE BEGIN USART2_MspInit 0 */
+
+  /* USER CODE END USART2_MspInit 0 */
+
+  /** Initializes the peripherals clocks
+  */
+    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART2;
+    PeriphClkInitStruct.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
+    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    /* Peripheral clock enable */
+    __HAL_RCC_USART2_CLK_ENABLE();
+
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    /**USART2 GPIO Configuration
+    PA3     ------> USART2_RX
+    PA2     ------> USART2_TX
+    */
+    GPIO_InitStruct.Pin = T_VCP_RX_Pin|T_VCP_RXA2_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    GPIO_InitStruct.Alternate = GPIO_AF7_USART2;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    /* USART2 interrupt Init */
+    HAL_NVIC_SetPriority(USART2_IRQn, 5, 0);
+    HAL_NVIC_EnableIRQ(USART2_IRQn);
+  /* USER CODE BEGIN USART2_MspInit 1 */
+
+  /* USER CODE END USART2_MspInit 1 */
+  }
+
+}
+
+/**
+* @brief UART MSP De-Initialization
+* This function freeze the hardware resources used in this example
+* @param huart: UART handle pointer
+* @retval None
+*/
+void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
+{
+  if(huart->Instance==USART2)
+  {
+  /* USER CODE BEGIN USART2_MspDeInit 0 */
+
+  /* USER CODE END USART2_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_USART2_CLK_DISABLE();
+
+    /**USART2 GPIO Configuration
+    PA3     ------> USART2_RX
+    PA2     ------> USART2_TX
+    */
+    HAL_GPIO_DeInit(GPIOA, T_VCP_RX_Pin|T_VCP_RXA2_Pin);
+
+    /* USART2 interrupt DeInit */
+    HAL_NVIC_DisableIRQ(USART2_IRQn);
+  /* USER CODE BEGIN USART2_MspDeInit 1 */
+
+  /* USER CODE END USART2_MspDeInit 1 */
+  }
+
 }
 
 /* USER CODE BEGIN 1 */

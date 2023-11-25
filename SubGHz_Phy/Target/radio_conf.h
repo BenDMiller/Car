@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2021 STMicroelectronics.
+  * Copyright (c) 2023 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -28,17 +28,17 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "platform.h"
-#include "subghz.h"
+#include "main.h"
 #include "stm32_mem.h"       /* RADIO_MEMSET8 def in this file */
 #include "mw_log_conf.h"     /* mw trace conf */
 #include "radio_board_if.h"  /* low layer api (bsp) */
 #include "utilities_def.h"  /* low layer api (bsp) */
-#include "sys_debug.h"
 /* USER CODE BEGIN include */
 
 /* USER CODE END include */
 
 /* Exported types ------------------------------------------------------------*/
+extern SUBGHZ_HandleTypeDef hsubghz;
 /* USER CODE BEGIN ET */
 
 /* USER CODE END ET */
@@ -92,15 +92,6 @@ extern "C" {
 #define DCDC_ENABLE                 ( 1UL )
 
 /* USER CODE BEGIN EC */
-/**
-  * @brief Set RX pin to high or low level
-  */
-#define DBG_GPIO_RADIO_RX(set_rst) PROBE_GPIO_##set_rst##_LINE(PROBE_LINE1_PORT, PROBE_LINE1_PIN);
-
-/**
-  * @brief Set TX pin to high or low level
-  */
-#define DBG_GPIO_RADIO_TX(set_rst) PROBE_GPIO_##set_rst##_LINE(PROBE_LINE2_PORT, PROBE_LINE2_PIN);
 
 /* USER CODE END EC */
 

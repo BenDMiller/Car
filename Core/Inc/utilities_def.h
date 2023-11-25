@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2021 STMicroelectronics.
+  * Copyright (c) 2023 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -45,43 +45,11 @@ typedef enum
   /* USER CODE BEGIN CFG_LPM_Id_t_0 */
 
   /* USER CODE END CFG_LPM_Id_t_0 */
-  CFG_LPM_APPLI_Id,
-  CFG_LPM_UART_TX_Id,
+  CFG_LPM_DUMMY_Id,
   /* USER CODE BEGIN CFG_LPM_Id_t */
 
   /* USER CODE END CFG_LPM_Id_t */
 } CFG_LPM_Id_t;
-
-/*---------------------------------------------------------------------------*/
-/*                             sequencer definitions                         */
-/*---------------------------------------------------------------------------*/
-
-/**
-  * This is the list of priority required by the application
-  * Each Id shall be in the range 0..31
-  */
-typedef enum
-{
-  CFG_SEQ_Prio_0,
-  /* USER CODE BEGIN CFG_SEQ_Prio_Id_t */
-
-  /* USER CODE END CFG_SEQ_Prio_Id_t */
-  CFG_SEQ_Prio_NBR,
-} CFG_SEQ_Prio_Id_t;
-
-/**
-  * This is the list of task id required by the application
-  * Each Id shall be in the range 0..31
-  */
-typedef enum
-{
-  CFG_SEQ_Task_SubGHz_Phy_App_Process,
-  /* USER CODE BEGIN CFG_SEQ_Task_Id_t */
-  CFG_SEQ_Task_LED_Process,
-  /* USER CODE END CFG_SEQ_Task_Id_t */
-  CFG_SEQ_Task_NBR
-} CFG_SEQ_Task_Id_t;
-
 /* USER CODE BEGIN ET */
 
 /* USER CODE END ET */
