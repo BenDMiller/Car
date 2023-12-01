@@ -176,14 +176,14 @@ static void OnRxDone(uint8_t *payload, uint16_t size, int16_t rssi, int8_t LoraS
 	/* Record Received Signal Strength*/
 	RssiValue = rssi;
 	data_received = true;
-	printf("Received: %s\n\r",BufferRx);
+	//printf("Received: %s\n\r",BufferRx);
   /* USER CODE END OnRxDone */
 }
 
 static void OnTxTimeout(void)
 {
   /* USER CODE BEGIN OnTxTimeout */
-	printf("TX Timed Out");
+	//printf("TX Timed Out");
 	Radio.Rx(0);
   /* USER CODE END OnTxTimeout */
 }
@@ -191,7 +191,7 @@ static void OnTxTimeout(void)
 static void OnRxTimeout(void)
 {
   /* USER CODE BEGIN OnRxTimeout */
-	printf("RX Timed Out");
+	//printf("RX Timed Out");
 	Radio.Rx(0);
   /* USER CODE END OnRxTimeout */
 }
@@ -199,7 +199,7 @@ static void OnRxTimeout(void)
 static void OnRxError(void)
 {
   /* USER CODE BEGIN OnRxError */
-	printf("RX Error");
+	//printf("RX Error");
 	Radio.Rx(0);
   /* USER CODE END OnRxError */
 }
@@ -231,7 +231,7 @@ void Transmit(char* message)
 	{
 		memcpy(BufferTx, message, sizeof(message) - 1);
 		Radio.Send(BufferTx, PAYLOAD_LEN);
-		printf("Transmitted: %s\n\r",message);
+		////printf("Transmitted: %s\n\r",message);
 	}
 
 }

@@ -423,13 +423,13 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 			HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET); /* LED_BLUE */
 			new_message = "1";
 			osMessageQueuePut(TransmitQueueHandle, &new_message, 100, 0U);
-			printf("Adding: %s\n\r",new_message);
+			//printf("Adding: %s\n\r",new_message);
 			break;
 		case B2_Pin:
 			HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET); /* LED_BLUE */
 			new_message = "0";
 			osMessageQueuePut(TransmitQueueHandle, &new_message, 100, 0U);
-			printf("Adding: %s\n\r",new_message);
+			//printf("Adding: %s\n\r",new_message);
 			break;
 		}
 
@@ -474,7 +474,7 @@ void StartTransmitTask(void *argument)
   {
 	  if (osMessageQueueGet(TransmitQueueHandle, &message, &msg_prio, (uint32_t) 1) == osOK)
 	  {
-		  printf("Transmitting: %s\n\r",message);
+		  //printf("Transmitting: %s\n\r",message);
 		  Transmit(message);
 	  }
     osDelay(1);
